@@ -1,6 +1,6 @@
 <?php
 
-class AbstractLibrary
+abstract class AbstractLibrary
 {
     /**
      * @var Author[]
