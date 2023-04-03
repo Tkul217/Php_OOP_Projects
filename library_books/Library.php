@@ -13,21 +13,41 @@ class Library extends AbstractLibrary
 
     public function addBookForAuthor($authorName, Book $book)
     {
-        // TODO: Implement addBookForAuthor() method.
+        $author = $this->findAuthor($authorName);
+        if ($author){
+            $author->addBook($book->getTitle(), $book->getPrice());
+        }
     }
 
     public function getBooksForAuthor($authorName)
     {
-        // TODO: Implement getBooksForAuthor() method.
+        $author = $this->findAuthor($authorName);
+        if ($author){
+            return $author->getBooks();
+        }
+        return [];
     }
 
     public function search(string $bookName): ?Book
     {
-        // TODO: Implement search() method.
+        foreach ($this->getAuthors() as $author){
+            foreach ($author->getBooks() as $book){
+                if ($book->getTitle() === $bookName){
+                    return $book;
+                }
+            }
+        }
+        return null;
     }
 
     public function print()
     {
-        // TODO: Implement print() method.
+        foreach ($this->getAuthors() as $author){
+            echo $author->getName() . PHP_EOL;
+            echo '------------------'.PHP_EOL;
+            foreach ($author->getBooks() as $book){
+                echo $book->getTitle() . '-----' . $book->getPrice() . PHP_EOL;
+            }
+        }
     }
 }
