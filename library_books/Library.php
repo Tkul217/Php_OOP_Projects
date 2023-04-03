@@ -1,6 +1,6 @@
 <?php
-require_once AbstractLibrary::class;
-require_once Author::class;
+require_once('AbstractLibrary.php');
+require_once('Author.php');
 
 class Library extends AbstractLibrary
 {
