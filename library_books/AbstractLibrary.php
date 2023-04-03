@@ -77,7 +77,7 @@ abstract class AbstractLibrary
     abstract public function search(string $bookName): ?Book;
 
     /**
-     * THis method must print every authpr and for each author all its books in the folowwing format
+     * This method must print every author and for each author all its books in the following format
      *
      * AuthorName
      *
